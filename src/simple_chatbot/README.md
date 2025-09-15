@@ -12,6 +12,28 @@ This folder contains two entry points for interacting with a Gemini (Google Gene
 - An API key set as `GEMINI_API_KEY` (preferred) or `GOOGLE_API_KEY`.
 - Dependencies installed (managed by `pyproject.toml`).
 
+### Install Tooling (uv or pip)
+
+Install `uv` (recommended fast resolver):
+```powershell
+pip install uv
+```
+
+Sync environment from `pyproject.toml` + lock resolution:
+```powershell
+uv sync
+```
+
+OR (explicit) install using uv's pip wrapper from lock file if present:
+```powershell
+uv pip install -r uv.lock
+```
+
+Or derive requirements directly (less reproducible):
+```powershell
+uv pip install -r pyproject.toml
+```
+
 Set your key (PowerShell, persistent for new terminals):
 ```powershell
 setx GEMINI_API_KEY "YOUR_KEY"
