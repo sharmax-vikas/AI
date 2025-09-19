@@ -138,8 +138,3 @@ Future Ideas
 * Support other file types (Markdown, text, HTML).
 * Add evaluation scripts for retrieval quality.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1fe6ddcee9e221870744edd7e35fb206f20467aa
-
