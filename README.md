@@ -109,8 +109,4 @@ Future Ideas
 * Support other file types (Markdown, text, HTML).
 * Add evaluation scripts for retrieval quality.
 
-License
---------
-
-Add your preferred license here.
 
