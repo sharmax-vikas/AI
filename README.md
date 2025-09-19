@@ -5,6 +5,7 @@ This repository includes:
 
 1. Simple Gemini chat (`simple_chatbot`)
 2. PDF Retrieval-Augmented Generation (RAG) Question Answering app (`rag_qa`)
+3. LangChain Agents demo with tools (`agents_demo`)
 
 Both use Google Gemini models via `langchain`.
 
@@ -64,12 +65,39 @@ streamlit run src/rag_qa/streamlit_rag.py
 
 Steps inside the UI:
 
-1. (Optional) Tick the checkbox to include the sample Bhagavad Gita PDF (if present at `src/document Q&A system/Bhagavad-gita-As-It-Is.pdf`).
-2. Upload one or more PDF files.
-3. Adjust chunk size / overlap / Top-K if desired.
-4. Click "Build / Rebuild Vector Store".
-5. Ask a question in the input field and click "Ask".
-6. Expand "Sources" to view retrieved chunks.
+1. Upload one or more PDF files.
+2. Adjust chunk size / overlap / Top-K if desired.
+3. Click "Build / Rebuild Vector Store".
+4. Ask a question in the input field and click "Ask".
+5. Expand "Sources" to view retrieved chunks.
+
+Agents Demo
+------------
+
+Launch:
+
+```bash
+streamlit run src/agents_demo/streamlit_agents.py
+```
+
+Features:
+
+* Tool-calling agent using Google Gemini via LangChain
+* Conversational memory across turns
+* Built-in tools:
+  * `web_search` (DuckDuckGo via ddgs, with a LangChain fallback)
+  * `calculator` (numexpr)
+  * `http_get` (requests)
+
+Usage inside the UI:
+
+1. Set model and temperature in the sidebar and click "Initialize Agent".
+2. Ask questions; the agent will decide when to use tools.
+
+Notes:
+
+* Internet access is required for `web_search` and `http_get`.
+* If you change dependencies while Streamlit is running, restart Streamlit and re-initialize the agent.
 
 Architecture (RAG)
 -------------------
@@ -100,6 +128,7 @@ Limitations / Notes
 * No persistence layer implemented yet.
 * Basic prompt instructs the model not to hallucinate; still may happen.
 * Token counting / cost tracking not included (could be added with callbacks).
+* Agents demo excludes a shell tool for safety/stability.
 
 Future Ideas
 -------------
@@ -109,8 +138,5 @@ Future Ideas
 * Support other file types (Markdown, text, HTML).
 * Add evaluation scripts for retrieval quality.
 
-License
---------
 
-Add your preferred license here.
 

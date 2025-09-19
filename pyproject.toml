@@ -13,4 +13,9 @@ dependencies = [
     "pypdf>=5.0.0",
     "faiss-cpu>=1.8.0.post1",
     "tiktoken>=0.7.0",
+    "duckduckgo-search>=6.3.7",
+    "numexpr>=2.10.1",
+    "requests>=2.32.3",
+    "ddgs>=1.9.7",
+    "langchain-experimental>=0.3.4",
 ]
